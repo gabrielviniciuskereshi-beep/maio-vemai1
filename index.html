@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vem nunca?</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            height:100vh;
+            overflow:hidden;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+
+            font-family:Arial, sans-serif;
+            text-align:center;
+
+            background-color:#222;
+
+            background-image:url('https://media.istockphoto.com/id/1133825734/pt/vetorial/homeless-emoticon.jpg?s=170667a&w=0&k=20&c=3X3xo32bswxRv1GWH9N_mN5Fm3SZVUNIvMo6aRWFOzc=');
+
+            background-size:95%;
+            background-position:center;
+            background-repeat:no-repeat;
+        }
+
+        h1{
+            color:white;
+            font-size:32px;
+            width:80%;
+            text-shadow:3px 3px 10px black;
+            margin-bottom:50px;
+            z-index:10;
+        }
+
+        .botoes{
+            position:relative;
+            width:100%;
+            max-width:500px;
+            height:150px;
+            z-index:10;
+        }
+
+        button{
+            padding:15px 30px;
+            border:none;
+            border-radius:12px;
+            font-size:20px;
+            cursor:pointer;
+            font-weight:bold;
+            box-shadow:2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        #sim{
+            background:#28a745;
+            color:white;
+            position:absolute;
+            left:50px;
+        }
+
+        #sim:hover{
+            transform:scale(1.08);
+            transition:0.2s;
+        }
+
+        #nao{
+            background:#dc3545;
+            color:white;
+
+            position:absolute;
+            right:50px;
+
+            width:120px;
+            height:55px;
+
+            transform:none !important;
+            transition:none !important;
+        }
+
+        #agradecimento{
+            display:none;
+            flex-direction:column;
+            align-items:center;
+            z-index:10;
+        }
+
+        #agradecimento img{
+            width:250px;
+            border-radius:20px;
+            box-shadow:0 0 20px black;
+        }
+
+        #agradecimento h2{
+            color:white;
+            font-size:34px;
+            text-shadow:3px 3px 10px black;
+            margin-top:25px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="inicio">
+
+    <h1>
+        Super, poderia contribuir com uma esmola?
+        <br>
+        
+    </h1>
+
+    <div class="botoes">
+
+        <button id="sim">SIM</button>
+
+        <button id="nao">NÃO</button>
+
+    </div>
+
+</div>
+
+<div id="agradecimento">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQocWxCs5RgC0t-8ny3tJLgkWbRIthmiadGPA&s">
+
+    <h2>
+        Obrigado pelo reconhecimento! 😍💸
+    </h2>
+
+</div>
+
+<script>
+
+    const botaoNao = document.getElementById("nao");
+
+    botaoNao.addEventListener("mouseover", () => {
+
+        const largura = window.innerWidth - 140;
+        const altura = window.innerHeight - 80;
+
+        const x = Math.random() * largura;
+        const y = Math.random() * altura;
+
+        botaoNao.style.position = "fixed";
+
+        botaoNao.style.left = `${x}px`;
+        botaoNao.style.top = `${y}px`;
+    });
+
+    document.getElementById("sim").addEventListener("click", () => {
+
+        document.getElementById("inicio").style.display = "none";
+
+        document.body.style.backgroundImage =
+        "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQocWxCs5RgC0t-8ny3tJLgkWbRIthmiadGPA&s')";
+
+        document.body.style.backgroundSize = "cover";
+
+        document.getElementById("agradecimento").style.display = "flex";
+    });
+
+</script>
+
+</body>
+</html>
